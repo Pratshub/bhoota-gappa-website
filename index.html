@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhoota Gappa — Where Folklore Breathes Through Fear</title>
+  <meta name="description" content="Official site of Bhoota Gappa — a horror folklore book series by Pratiksha Misra. Explore books, research logs, creatures, and the JustUtter community." />
+  <meta name="theme-color" content="#0a0a0a" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bhoota Gappa — Where Folklore Breathes Through Fear" />
+  <meta property="og:description" content="Horror folklore from India and beyond. Books, research logs, and a community of storytellers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: rgba(255,255,255,.08);
+      --text: #e8e8e8;
+      --muted: #888;
+      --accent: #b8942c;
+      --accent-dark: #8a6d1f;
+      --radius: 8px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 0.5rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    
+    p { margin-bottom: 1rem; }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 500;
+      opacity: 1 !important;
+    }
+    
+    .nav-cta:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: var(--transition);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(184,148,44,0.1) 0%, transparent 70%);
+      animation: breathe 8s ease-in-out infinite;
+    }
+    
+    @keyframes breathe {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+      50% { transform: translateX(-50%) scale(1.1); opacity: 0.5; }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+    
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .hero h1 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero h1 .accent {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,148,44,0.25);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(184,148,44,0.05);
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Section */
+    section {
+      padding: 8rem 0;
+      position: relative;
+    }
+    
+    section:nth-child(even) {
+      background: var(--surface);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Grid */
+    .grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .grid-2 {
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+    }
+    
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section:nth-child(even) .card {
+      background: var(--bg);
+    }
+    
+    .card:hover {
+      border-color: rgba(184,148,44,0.3);
+      transform: translateY(-4px);
+    }
+    
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .card-cover {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, rgba(184,148,44,0.05) 0%, transparent 100%);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .card:hover .card-cover {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(184,148,44,0.1) 0%, transparent 100%);
+    }
+    
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .card-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    
+    /* Creature Details */
+    .creature {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .creature:hover {
+      border-color: rgba(184,148,44,0.3);
+    }
+    
+    .creature summary {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      user-select: none;
+    }
+    
+    .creature summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .creature summary:hover {
+      background: rgba(184,148,44,0.03);
+    }
+    
+    .creature-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .creature-tag {
+      color: var(--muted);
+      font-size: 0.9rem;
+      flex: 1;
+      margin-left: 1rem;
+    }
+    
+    .creature[open] summary {
+      border-bottom: 1px solid var(--border);
+      background: rgba(184,148,44,0.03);
+    }
+    
+    .creature-content {
+      padding: 1.5rem;
+      color: var(--muted);
+    }
+    
+    /* Form */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 36px;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+      opacity: 0.5;
+      transition: var(--transition);
+    }
+    
+    .scroll-indicator:hover {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+    
+    .scroll-indicator::before {
+      content: '';
+      width: 4px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 999px;
+      animation: scroll 2s ease-in-out infinite;
+    }
+    
+    @keyframes scroll {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(12px); opacity: 0; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(10,10,10,0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+        border-bottom: 1px solid var(--border);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      
+      .hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+      
+      section {
+        padding: 5rem 0;
+      }
+      
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    
+    /* Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BookSeries",
+    "name": "Bhoota Gappa",
+    "author": {
+      "@type": "Person",
+      "name": "Pratiksha Misra"
+    },
+    "genre": "Horror, Folklore",
+    "url": "https://example.com",
+    "sameAs": [
+      "https://www.instagram.com/justutter",
+      "https://www.facebook.com/justutter"
+    ]
+  }
+  </script>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>Bhoota Gappa</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#log">Research Log</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#shop" class="nav-cta">Shop</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-tag">A Horror Folklore Series</p>
+      <h1>Where <span class="accent">Folklore</span> Breathes Through Fear</h1>
+      <p class="hero-subtitle">Stories from Odisha and beyond — devotion, dread, and the thin line between the living and the not‑yet‑gone.</p>
+      <div class="hero-buttons">
+        <a href="#books" class="btn btn-primary">Read the Books</a>
+        <a href="#log" class="btn btn-secondary">Explore Research</a>
+        <a href="#community" class="btn btn-secondary">Share Your Story</a>
+      </div>
+    </div>
+    <a href="#books" class="scroll-indicator"></a>
+  </section>
+
+  <!-- Books Section -->
+  <section id="books">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>The Books</h2>
+        <p class="section-subtitle">Each volume blends documented folklore, field notes, and haunted fiction. Choose your portal.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card fade-in">
+          <span class="card-badge">Part I</span>
+          <div class="card-cover" style="background: transparent; border: none; padding: 0; min-height: 400px;">
+            <img src="bg1.png" alt="Bhoota Gappa Part 1 Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted)\'>Cover Image</div>'">
+          </div>
+          <h3>Bhoota Gappa — Untold Folklore</h3>
+          <p class="card-meta">Paperback • Hardcover • Kindle</p>
+          <p>The first journey into the shadows where ancient spirits whisper forgotten truths.</p>
+          <div class="card-actions">
+            <a href="https://www.amazon.in/Bhoota-Gappa-Short-Horror-Stories/dp/B0DNK7S2N4/" target="_blank" rel="noopener" class="btn btn-primary">Buy on Amazon</a>
+            <a href="sample-bg1.pdf" target="_blank" class="btn btn-secondary">Read Sample</a>
+          </div>
+        </article>
+        <article class="card fade-in">
+          <span class="card-badge">Part II</span>
+          <div class="card-cover" style="background: transparent; border: none; padding: 0; min-height: 400px;">
+            <img src="bg2.jpg" alt="Bhoota Gappa Part 2 Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted)\'>Cover Image</div>'">
+          </div>
+          <h3>Bhoota Gappa — Echoes & Embers</h3>
+          <p class="card-meta">Paperback • Hardcover • Kindle</p>
+          <p>Deeper into the darkness, where echoes of the past refuse to fade.</p>
+          <div class="card-actions">
+            <a href="https://www.amazon.in/Bhoota-Gappa-Beloved-Stories-JustUtter/dp/B0F1YPX9VV/" target="_blank" rel="noopener" class="btn btn-primary">Buy on Amazon</a>
+            <a href="sample-bg2.pdf" target="_blank" class="btn btn-secondary">Read Sample</a>
+          </div>
+        </article>
+        <article class="card fade-in">
+          <span class="card-badge">Part III</span>
+          <div class="card-cover" style="background: transparent; border: none; padding: 0; min-height: 400px;">
+            <img src="bg3.png" alt="Bhoota Gappa Part 3 Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted)\'>Cover Image</div>'">
+          </div>
+          <h3>The Burnt Smell of Fresh Ash</h3>
+          <p class="card-meta">Paperback • Hardcover • Kindle</p>
+          <p>Where endings become beginnings, and ash carries the memory of fire.</p>
+          <div class="card-actions">
+            <a href="https://www.amazon.in/BHOOTA-GAPPA-PART-Horror-Stories/dp/B0FS7R8J6Z/" target="_blank" rel="noopener" class="btn btn-primary">Buy on Amazon</a>
+            <a href="sample-bg3.pdf" target="_blank" class="btn btn-secondary">Read Sample</a>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Special Edition -->
+      <div style="margin-top: 3rem;">
+        <div class="section-header fade-in">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Special Edition</h3>
+        </div>
+        <div class="grid" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
+          <article class="card fade-in">
+            <span class="card-badge">Special</span>
+            <div class="card-cover" style="background: transparent; border: none; padding: 0; min-height: 400px;">
+              <img src="bs4.jpg" alt="Bhoota Gappa Special Edition Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted)\'>Cover Image</div>'">
+            </div>
+            <h3>50 Dark Folklore & Ghost Stories</h3>
+            <p class="card-meta">Special Collector's Edition</p>
+            <p>A comprehensive collection of chilling tales from across India and beyond.</p>
+            <div class="card-actions">
+              <a href="https://www.amazon.in/Dark-Folklore-Ghost-Stories-Odisha/dp/B0GDLX6QKS/" target="_blank" rel="noopener" class="btn btn-primary">Buy on Amazon</a>
+              <a href="sample-bs4.docx" target="_blank" class="btn btn-secondary">Read Sample</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bhoota Gappa Research Log -->
+  <section id="log">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Bhoota Gappa Research Log</h2>
+        <p class="section-subtitle">Folklore creatures from across India and the Himalayas. Documented, illustrated, and preserved.</p>
+      </div>
+      
+      <!-- Folklore Image Slider -->
+      <div class="fade-in" style="margin-top: 3rem;">
+        <div id="folkloreSlider" style="position: relative; overflow: hidden; border-radius: var(--radius); background: var(--surface); max-width: 900px; margin: 0 auto;">
+          <div id="sliderTrack" style="display: flex; transition: transform 0.5s ease;">
+            <!-- Slide 1 - Manipur Horror -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="giant.jpg" alt="Manipur Horror Folklore Creatures" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 2 - Kao -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="kao.jpg" alt="Kao - The Supernatural Bull" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 3 - Keibu Keioiba -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="keiku.jpg" alt="Keibu Keioiba - The Tiger-Man" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 4 - Yeti -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="20250702205656.jpg" alt="Yeti - The Ice-Cold Legend" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 5 - Khyah -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="20250702205908.jpg" alt="Khyah - The Mischief in the Shadows" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 6 - Lakhey -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="20250702205955.jpg" alt="Lakhey - The Demon Who Dances" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+            <!-- Slide 7 - Nepal Creatures -->
+            <div class="slide" style="min-width: 100%; position: relative;">
+              <img src="nepalhorror.jpg" alt="Nepal Horror Folklore" style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+            </div>
+          </div>
+          
+          <!-- Slider Controls -->
+          <button id="prevSlide" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid var(--accent); color: var(--accent); width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10;">‹</button>
+          <button id="nextSlide" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid var(--accent); color: var(--accent); width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; z-index: 10;">›</button>
+          
+          <!-- Slide Indicators -->
+          <div id="slideIndicators" style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 10;">
+            <span class="indicator active" data-slide="0" style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="1" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="2" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="3" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="4" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="5" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+            <span class="indicator" data-slide="6" style="width: 10px; height: 10px; border-radius: 50%; background: var(--border); cursor: pointer; transition: var(--transition);"></span>
+          </div>
+        </div>
+        
+        <!-- More Info Link -->
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="https://www.amazon.in/BHOOTA-GAPPA-PART-Horror-Stories/dp/B0FS7R8J6Z/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            Explore More in Bhoota Gappa Part 3
+            <span style="font-size: 1.2rem;">→</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Trailer -->
+      <div style="margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <div class="card fade-in">
+          <h3>Featured Trailer</h3>
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 1rem; border-radius: 8px; background: #000;">
+            <iframe 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 8px;" 
+              src="https://www.youtube-nocookie.com/embed/kFdc0EeimjY?rel=0" 
+              title="Bhoota Gappa Trailer" 
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community -->
+  <section id="community">
+    <div class="container">
+      <div class="grid grid-2">
+        <div>
+          <div class="fade-in">
+            <h2>Tell Me a Bhoota Gappa</h2>
+            <p class="section-subtitle" style="text-align: left;">Share your true encounter or inherited folklore. Selected entries get featured and win signed copies.</p>
+          </div>
+          
+          <form class="fade-in" style="margin-top: 2rem;" id="storyForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="region">Region</label>
+                <input type="text" id="region" name="region" placeholder="e.g., Odisha, Kolkata" />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="story">Your Story</label>
+              <textarea id="story" name="story" placeholder="Write your Bhoota Gappa..." required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label style="display: flex; align-items: center; cursor: pointer;">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span>I confirm this story is mine to share and consent to publication.</span>
+              </label>
+            </div>
+            
+            <div id="formMessage" style="display: none; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;"></div>
+            
+            <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%;">Submit Story</button>
+          </form>
+        </div>
+        
+        <aside>
+          <div class="card fade-in">
+            <h3>Reader Spotlight</h3>
+            <p class="card-meta">Every Friday — #JustUtterSpotlight</p>
+            <p>Tag <strong>@JustUtter</strong> and use <strong>#BhootaGappa</strong> to get featured. Community is the echo that keeps folklore alive.</p>
+          </div>
+          
+          <div class="card fade-in">
+            <h3>Submission Guidelines</h3>
+            <ul style="color: var(--muted); line-height: 1.8;">
+              <li>Stories should be 200-1000 words</li>
+              <li>Include location and time period</li>
+              <li>Original content only</li>
+              <li>Respectful of cultural traditions</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop -->
+  <section id="shop">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Shop</h2>
+        <p class="section-subtitle">Exclusive merchandise, signed copies, and collectibles. Bring the folklore home.</p>
+      </div>
+      
+      <!-- Signed Books -->
+      <div style="margin-bottom: 4rem;">
+        <h3 class="fade-in" style="margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">Signed Editions</h3>
+        <div class="grid grid-3">
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">📚</div>
+                <div>Signed Book Image</div>
+              </div>
+            </div>
+            <h3>Signed Copy — Bhoota Gappa Part 3</h3>
+            <p class="card-meta">Ships worldwide • Limited Edition</p>
+            <p>Personally signed by Pratiksha Misra with a custom dedication.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Pre-Order Now</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Bookmarks -->
+      <div style="margin-bottom: 4rem;">
+        <h3 class="fade-in" style="margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">Bhoota Gappa Bookmarks</h3>
+        <div class="grid grid-3">
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔖</div>
+                <div>Bookmark Set Image</div>
+              </div>
+            </div>
+            <h3>Creature Bookmark Collection</h3>
+            <p class="card-meta">Gold Foil • Set of 5</p>
+            <p>Featuring iconic creatures: Chudail, Pishacha, Navagunjara, and more with gold foil accents.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="#" class="btn btn-secondary">View All</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔖</div>
+                <div>Bookmark Image</div>
+              </div>
+            </div>
+            <h3>AzaGka Bookmark</h3>
+            <p class="card-meta">Limited Edition • Metallic Finish</p>
+            <p>Exclusive AzaGka character design with fire elements.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🔖</div>
+                <div>Bookmark Image</div>
+              </div>
+            </div>
+            <h3>Folklore Quotes Bookmarks</h3>
+            <p class="card-meta">Set of 3 • Matte Finish</p>
+            <p>Inspirational quotes from the Bhoota Gappa series.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- T-Shirts -->
+      <div style="margin-bottom: 4rem;">
+        <h3 class="fade-in" style="margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">Apparel</h3>
+        <div class="grid grid-3">
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">👕</div>
+                <div>T-Shirt Image</div>
+              </div>
+            </div>
+            <h3>Bhoota Gappa Logo Tee</h3>
+            <p class="card-meta">Unisex • Premium Cotton • S–XXL</p>
+            <p>Classic black tee with embossed Bhoota Gappa logo in dark gold.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Select Size</a>
+              <a href="#" class="btn btn-secondary">Size Guide</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">👕</div>
+                <div>T-Shirt Image</div>
+              </div>
+            </div>
+            <h3>The Tiger Within Tee</h3>
+            <p class="card-meta">Unisex • Organic Cotton • S–XXL</p>
+            <p>Featuring the mystical weretiger artwork with folklore motifs.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Select Size</a>
+              <a href="#" class="btn btn-secondary">Size Guide</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">👕</div>
+                <div>T-Shirt Image</div>
+              </div>
+            </div>
+            <h3>JustUtter Quotes Collection</h3>
+            <p class="card-meta">Unisex • Multiple Designs • S–XXL</p>
+            <p>Powerful folklore quotes and mantras from the series.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">View Collection</a>
+              <a href="#" class="btn btn-secondary">Size Guide</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Character Toys & Collectibles -->
+      <div>
+        <h3 class="fade-in" style="margin-bottom: 2rem; text-align: center; font-size: 1.5rem;">Character Collectibles</h3>
+        <div class="grid grid-3">
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎭</div>
+                <div>Toy Image</div>
+              </div>
+            </div>
+            <h3>AzaGka Action Figure</h3>
+            <p class="card-meta">Limited Edition • Hand-Painted</p>
+            <p>Detailed 6-inch collectible figure with fire accessories and display stand.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Pre-Order</a>
+              <a href="#" class="btn btn-secondary">Gallery</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎭</div>
+                <div>Toy Image</div>
+              </div>
+            </div>
+            <h3>Creature Mini Figure Set</h3>
+            <p class="card-meta">Set of 5 • Collectible Series</p>
+            <p>Chudail, Pishacha, Navagunjara, and more iconic creatures.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Buy Set</a>
+              <a href="#" class="btn btn-secondary">View All</a>
+            </div>
+          </article>
+          
+          <article class="card fade-in">
+            <div class="card-cover" style="background: linear-gradient(135deg, rgba(184,148,44,0.1), rgba(138,109,31,0.05)); display: flex; align-items: center; justify-content: center; min-height: 300px; border: 2px dashed var(--border);">
+              <div style="text-align: center; color: var(--muted);">
+                <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎭</div>
+                <div>Toy Image</div>
+              </div>
+            </div>
+            <h3>Sibling Squad Bundle</h3>
+            <p class="card-meta">Complete Set • Special Edition</p>
+            <p>All seven siblings from Shikaar Nagar in one collector's box.</p>
+            <div class="card-actions">
+              <a href="#" class="btn btn-primary">Pre-Order Bundle</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="fade-in">
+          <h2>About the Author</h2>
+          <p>Pratiksha Misra is a product leader and the creator of <em>Bhoota Gappa</em>, a multi‑part horror anthology rooted in Indian folklore. She runs the JustUtter platform to spotlight storytellers and resurrect forgotten myths.</p>
+          <p>Through meticulous research and evocative storytelling, she bridges the gap between ancient wisdom and modern horror, keeping cultural narratives alive for new generations.</p>
+          <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+            <a href="#media-coverage" class="btn btn-primary">Media & Coverage</a>
+            <a href="/cdn-cgi/l/email-protection#4e3e3c2f3a27253d262f0e243b3d3a3b3a3a2b3c602d2123" class="btn btn-secondary">Contact: <span class="__cf_email__" data-cfemail="9bebe9faeff2f0e8f3fadbf1eee8efeeefeffee9b5f8f4f6">[email&#160;protected]</span></a>
+            <a href="https://pratikshamisra.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Website</a>
+          </div>
+        </div>
+        
+        <aside>
+          <div class="card fade-in">
+            <h3>Appearances & Events</h3>
+            <ul style="color: var(--muted); line-height: 2;">
+              <li>World Book Fair, New Delhi (2025, 2026)</li>
+              <li>Goa Book Festival (2025, 2026)</li>
+            </ul>
+            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+              <strong style="color: var(--text);">For more exclusive pictures and videos</strong><br>
+              Follow Instagram: <a href="https://www.instagram.com/thoughtswithinnocence" target="_blank" rel="noopener" style="color: var(--accent);">@thoughtswithinnocence</a>
+            </p>
+          </div>
+          
+          <div class="card fade-in" id="media-coverage">
+            <h3>Media Coverage</h3>
+            <p class="card-meta">Award-Winning Storyteller</p>
+            <p style="margin-bottom: 1rem;">Recognized for exceptional narrative craft and cultural storytelling.</p>
+            
+            <p style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+              <strong style="color: var(--text);">Exclusive interviews can be found at:</strong><br>
+              <a href="https://www.justutter.com/2024/11/interview-with-author-of-bhoota-gappa.html" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">JustUtter Interview with Author of Bhoota Gappa</a>
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <a href="https://writertoday.in/web-series-worthy-storyteller-awards-s3/1487/" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%;">Web Series Worthy Storyteller Award</a>
+              <a href="https://www.delhiwire.com/top-50-most-influential-authors-of-2025/11158/" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%;">Top 50 Most Influential Authors of 2025</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom: 1rem;">
+            <span class="logo-dot"></span>
+            <span>Bhoota Gappa</span>
+          </div>
+          <p style="color: var(--muted); max-width: 400px;">
+            © <span id="year"></span> JustUtter. All rights reserved.<br>
+            Made with devotion — and a little fear.
+          </p>
+        </div>
+        
+        <div>
+          <h3 style="margin-bottom: 1rem; font-size: 1rem;">Follow</h3>
+          <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+            <a href="#">Medium</a>
+          </div>
+          <div class="footer-links" style="margin-top: 1.5rem;">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>Preserving folklore, one story at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Hide scroll indicator after scrolling
+    let scrolled = false;
+    window.addEventListener('scroll', () => {
+      if (!scrolled && window.scrollY > 100) {
+        const indicator = document.querySelector('.scroll-indicator');
+        if (indicator) {
+          indicator.style.opacity = '0';
+          scrolled = true;
+        }
+      }
+    });
+    
+    // Folklore Slider Functionality
+    let currentSlide = 0;
+    const sliderTrack = document.getElementById('sliderTrack');
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const totalSlides = slides.length;
+    
+    function updateSlider() {
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+          indicator.style.background = 'var(--accent)';
+          indicator.classList.add('active');
+        } else {
+          indicator.style.background = 'var(--border)';
+          indicator.classList.remove('active');
+        }
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+    
+    // Button controls
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
+    // Indicator controls
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', () => {
+        currentSlide = parseInt(indicator.getAttribute('data-slide'));
+        updateSlider();
+      });
+    });
+    
+    // Auto-play (optional - every 5 seconds)
+    let autoplay = setInterval(nextSlide, 5000);
+    
+    // Pause autoplay on hover
+    const slider = document.getElementById('folkloreSlider');
+    if (slider) {
+      slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+      slider.addEventListener('mouseleave', () => {
+        autoplay = setInterval(nextSlide, 5000);
+      });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Story submission form handler
+    const storyForm = document.getElementById('storyForm');
+    if (storyForm) {
+      storyForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value,
+          region: document.getElementById('region').value,
+          story: document.getElementById('story').value,
+          consent: document.getElementById('consent').checked,
+          timestamp: new Date().toISOString()
+        };
+        
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        try {
+          // Formspree form submission
+          const response = await fetch('https://formspree.io/f/xojnjpjy', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          if (response.ok) {
+            // Success message
+            formMessage.style.display = 'block';
+            formMessage.style.background = 'rgba(184,148,44,0.1)';
+            formMessage.style.border = '1px solid var(--accent)';
+            formMessage.style.color = 'var(--accent)';
+            formMessage.textContent = '✓ Your story has been submitted successfully! We\'ll review it and get back to you soon.';
+            
+            // Reset form
+            storyForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+              formMessage.style.display = 'none';
+            }, 5000);
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (error) {
+          // Error message
+          formMessage.style.display = 'block';
+          formMessage.style.background = 'rgba(200,50,50,0.1)';
+          formMessage.style.border = '1px solid #c83232';
+          formMessage.style.color = '#ff6b6b';
+          formMessage.textContent = '✗ Something went wrong. Please try again or email your story directly to contact@justutter.com';
+        } finally {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Story';
+        }
+      });
+    }
+  </script>
+  
+  <!-- 
+    FORM SETUP INSTRUCTIONS:
+    
+    To make the story submission form work, you have 3 options:
+    
+    OPTION 1: Formspree (Easiest - Free for 50 submissions/month)
+    1. Go to https://formspree.io/
+    2. Sign up and create a new form
+    3. Copy your form ID (looks like: xyzabc123)
+    4. Replace 'YOUR_FORM_ID' in the code above with your actual form ID
+    
+    OPTION 2: Google Forms (Free & Unlimited)
+    1. Create a Google Form with fields: Name, Region, Story
+    2. Use a service like https://github.com/toperkin/staticFormEmails
+    3. Or use Apps Script to handle submissions
+    
+    OPTION 3: EmailJS (Free for 200 emails/month)
+    1. Sign up at https://www.emailjs.com/
+    2. Add their scri
